@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/home'); // sign in function
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(205, 144, 122, 255),

@@ -12,13 +12,13 @@ class _ProductItemState extends State<ProductItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.only(bottom: 4,top: 6, left: 8, right: 8),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 200, 162, 200),
+          color: const Color.fromARGB(170, 0, 128, 0),
           borderRadius: BorderRadius.circular(8.0),
         ),
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(12.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -29,7 +29,7 @@ class _ProductItemState extends State<ProductItem> {
                 borderRadius: BorderRadius.circular(8.0),
                 image: const DecorationImage(
                   image: AssetImage(
-                      'assets/images/baby-carrots.jpg'), 
+                      'assets/images/baby-carrots.jpg'),  // image
                   fit: BoxFit.cover,
                 ),
               ),
@@ -40,17 +40,17 @@ class _ProductItemState extends State<ProductItem> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Carrot',
+                    'Carrot', // title
                     style: textStyleStorageItemLabel,
                   ),
                   Container(margin: const EdgeInsets.only(top: 12)),
                   const Text(
-                    'Expiration date: 01.01.2024',
+                    'Expiration date: 01.01.2024', // expire
                     style: textStyleSmall,
                   ),
                   Container(margin: const EdgeInsets.only(top: 8)),
                   const Text(
-                    'Quantity: 10 pieces',
+                    'Quantity: 10 pieces', // quantity
                     style: textStyleSmall,
                   ),
                 ],

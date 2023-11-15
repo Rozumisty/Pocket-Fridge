@@ -12,8 +12,10 @@ class _RecipePageState extends State<RecipePage> {
   final selectedIndex = 2;
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: const PocketHeader(),
+    return Scaffold(
+      appBar: const PocketHeader(
+        backgroundColor: Color.fromARGB(255, 200, 162, 200),
+      ),
       bottomNavigationBar: PocketFooter(selectedIndex: selectedIndex),
     );
   }

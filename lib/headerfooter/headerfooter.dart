@@ -5,7 +5,9 @@ import 'package:pocket_fridge/pages/home.dart';
 import 'package:pocket_fridge/pages/recipes.dart';
 
 class PocketHeader extends StatelessWidget implements PreferredSizeWidget {
-  const PocketHeader({Key? key}) : super(key: key);
+  final Color backgroundColor;
+
+  const PocketHeader({Key? key, required this.backgroundColor}) : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -15,7 +17,7 @@ class PocketHeader extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: const Text("Pocket Fridge"),
       titleTextStyle: textStyleSign,
-      backgroundColor: const Color.fromARGB(255, 200, 162, 200),
+      backgroundColor: backgroundColor,
       actions: <Widget>[
         IconButton(
           onPressed: () {},
@@ -28,6 +30,7 @@ class PocketHeader extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
+
 
 class PocketFooter extends StatefulWidget {
   final int selectedIndex;
@@ -58,7 +61,6 @@ class _PocketFooterState extends State<PocketFooter> {
                   );
                   break;
                 case 1:
-                  // Обробка для індексу 1
                   break;
                 case 2:
                   Navigator.pushReplacement(
