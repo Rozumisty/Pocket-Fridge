@@ -1,0 +1,48 @@
+.navbar {
+  width: 100%;
+  background: #00c4ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 0;
+
+  .container {
+    justify-content: space-between;
+  }
+
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+
+    .logo {
+      height: 2.5rem;
+      aspect-ratio: initial;
+      margin-right: 10px;
+    }
+
+    .logoTitle {
+      display: flex;
+      height: min-content;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: rgb(190, 255, 255);
+    }
+  }
+
+  .downloadLink {
+    display: flex;
+    width: fit-content;
+    background: #beffff;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: #00c4ff;
+
+    &:hover {
+      background: #00c4ff;
+      color: #beffff;
+      box-shadow: 0 0 1rem #beffff inset;
+    }
+  }
+}
