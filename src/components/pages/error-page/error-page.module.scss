@@ -1,0 +1,27 @@
+.errorContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column ;
+  font-weight: 600;
+  letter-spacing: -1px;
+
+  .errorImg {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
+    width: 40%;
+  }
+
+  .errorMessage {
+    color: red;
+    font-size: 4rem;
+  }
+
+  .returnHome {
+    text-decoration: underline;
+    color: #da0000;
+  }
+}

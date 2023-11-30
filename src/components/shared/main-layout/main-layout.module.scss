@@ -1,6 +1,9 @@
+@import '../../../styles.scss';
+
 .navbar {
   width: 100%;
-  background: #00c4ff;
+  height: 3.5rem;
+  background: $secondary;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +30,7 @@
       height: min-content;
       font-size: 1.5rem;
       font-weight: 600;
-      color: rgb(190, 255, 255);
+      color: $background;
     }
   }
 
@@ -35,17 +38,25 @@
     display: flex;
     width: fit-content;
     height: fit-content;
-    background: #beffff;
+    border: 1px solid $primary;
     padding: 1rem;
     border-radius: 1rem;
     text-decoration: none;
-    color: #00c4ff;
+    color: $background;
 
     &:hover {
-      background: #00c4ff;
-      color: #beffff;
-      box-shadow: 0 0 1rem #beffff inset;
+      background: $primary;
+      color: $background;
+      border: 1px solid $secondary;
+      box-shadow: 0 0 1rem $secondary inset;
     }
+
+    &:active {
+      border: 1px solid $background;
+      box-shadow: 0 0 1rem $background inset;
+    }
+
+
   }
 }
 
