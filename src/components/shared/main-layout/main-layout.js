@@ -6,7 +6,7 @@ export default function MainLayout() {
         <div className={styles.navbar}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.logoContainer}>
-                    <img src="/logo.png" alt="logo" className={styles.logo}/>
+                    <img src="/logo.ico" alt="logo" className={styles.logo}/>
                     <p className={styles.logoTitle}>Pocket Fridge</p>
                 </div>
                 <a href="https://youtu.be/dQw4w9WgXcQ?si=rQvEvdOfaCrMgRPx"
