@@ -8,6 +8,7 @@
 
   .container {
     justify-content: space-between;
+    align-items: center;
   }
 
   .logoContainer {
@@ -16,7 +17,7 @@
     width: fit-content;
 
     .logo {
-      height: 2.5rem;
+      height: 3rem;
       aspect-ratio: initial;
       margin-right: 10px;
     }
@@ -33,6 +34,7 @@
   .downloadLink {
     display: flex;
     width: fit-content;
+    height: fit-content;
     background: #beffff;
     padding: 1rem;
     border-radius: 1rem;
@@ -44,5 +46,11 @@
       color: #beffff;
       box-shadow: 0 0 1rem #beffff inset;
     }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .logoTitle {
+    display: none !important;
   }
 }
