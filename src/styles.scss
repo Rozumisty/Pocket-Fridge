@@ -8,6 +8,9 @@ body {
   margin: 0;
   background: $background;
   font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
 
 *:focus {
@@ -17,6 +20,7 @@ body {
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
   text-decoration: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
@@ -25,8 +29,8 @@ body {
 
 .container {
   width: 1300px;
-  margin: auto;
   display: flex;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 1400px) {
@@ -41,9 +45,15 @@ body {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .container {
     padding: 0 10px;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    font-size: .8em;
   }
 }
