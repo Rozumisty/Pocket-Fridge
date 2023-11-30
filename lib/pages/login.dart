@@ -1,7 +1,7 @@
-// singlechildscrollview - для скролу
-
 import 'package:flutter/material.dart';
 import 'package:pocket_fridge/styles/textsStyle.dart';
+import 'package:flutter/gestures.dart';
+import 'package:pocket_fridge/pages/registration.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -103,7 +103,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home'); // sign in function
+                  Navigator.pushReplacementNamed(
+                      context, '/home'); // sign in function
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(205, 144, 122, 255),
@@ -119,15 +120,32 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 48,
               ),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "First time with Pocket Fridge?",
                     style: textStyleSmall,
                   ),
-                  SizedBox(width: 4),
-                  Text("Register Now", style: textStyleReg)
+                  const SizedBox(width: 4),
+                  RichText(
+                    text: TextSpan(
+                      text: '',
+                      style: textStyleReg,
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'Register Now',
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const RegistrationPage()),
+                                );
+                              }),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ],

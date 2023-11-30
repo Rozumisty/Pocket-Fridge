@@ -4,6 +4,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pocket_fridge/pages/home.dart';
 import 'package:pocket_fridge/pages/recipes.dart';
 
+
 class PocketHeader extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColor;
 

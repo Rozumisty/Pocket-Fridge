@@ -7,6 +7,14 @@ const TextStyle textStyleH1 = TextStyle(
   fontSize: 36,
 );
 
+const TextStyle textStyleH1registration = TextStyle(
+  color: Colors.white,
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w700,
+  fontSize: 36,
+);
+
+
 const TextStyle textStyleInput = TextStyle(
   color: Colors.white,
   fontFamily: "Montserrat",

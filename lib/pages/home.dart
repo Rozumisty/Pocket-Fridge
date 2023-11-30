@@ -4,6 +4,7 @@ import 'package:pocket_fridge/pageitems/productslist.dart';
 import 'package:pocket_fridge/pageitems/categorylist.dart';
 import 'package:pocket_fridge/headerfooter/headerfooter.dart';
 import 'package:pocket_fridge/pages/categorypage.dart';
+import 'package:pocket_fridge/pages/addproduct.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -52,9 +53,24 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: PocketFooter(selectedIndex: selectedIndex),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Додайте тут код для обробки натискання на кнопку
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddProduct(),
+            ),
+          );
+        },
+        backgroundColor: const Color.fromARGB(225, 144, 122, 255),
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }
+
 
 class HomeProductCategories extends StatefulWidget {
   const HomeProductCategories({Key? key}) : super(key: key);
