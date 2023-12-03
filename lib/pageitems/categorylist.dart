@@ -36,11 +36,7 @@ class CategoryItem extends StatelessWidget {
         child: Center(
           child: Text(
             categoryName,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-            ),
+            style: textStyleSign
           ),
         ),
       ),

@@ -13,7 +13,7 @@ class RecipeItem extends StatefulWidget {
     required this.imagePath,
     required this.recipeName,
     required this.onTap,
-    required this.backcolor, 
+    required this.backcolor,
     this.recipeText,
   }) : super(key: key);
 
@@ -42,20 +42,12 @@ class _RecipeItemState extends State<RecipeItem> {
           children: [
             Text(
               widget.recipeName,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 36.0,
-                fontWeight: FontWeight.bold,
-              ),
+              style: textStyleH1registration,
             ),
-            if (widget.recipeText != null) // Перевірте, чи параметр заданий
+            if (widget.recipeText != null)
               Text(
                 widget.recipeText!,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: textStyleSign,
               ),
           ],
         ),

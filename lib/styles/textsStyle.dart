@@ -63,3 +63,19 @@ const TextStyle textStyleStorageItemLabel = TextStyle(
   fontWeight: FontWeight.w700,
   fontSize: 20,
 );
+
+const TextStyle textStylePofileText = TextStyle(
+  color: Color.fromARGB(255, 0, 0, 0),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w700,
+  fontSize: 28,
+);
+
+const TextStyle textStylePofileTextEmail = TextStyle(
+  color: Color.fromARGB(255, 0, 0, 0),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w700,
+  fontSize: 20,
+);
+
+

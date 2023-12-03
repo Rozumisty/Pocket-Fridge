@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_fridge/headerfooter/headerfooter.dart';
 import 'package:pocket_fridge/pageitems/productslist.dart';
-import 'package:pocket_fridge/styles/textsStyle.dart';
 
 class CategoryPage extends StatefulWidget {
 

@@ -3,7 +3,8 @@ import 'package:pocket_fridge/styles/textsStyle.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pocket_fridge/pages/home.dart';
 import 'package:pocket_fridge/pages/recipes.dart';
-
+import 'package:pocket_fridge/pages/camerapage.dart';
+import 'package:pocket_fridge/pages/profilepage.dart';
 
 class PocketHeader extends StatelessWidget implements PreferredSizeWidget {
   final Color backgroundColor;
@@ -21,7 +22,12 @@ class PocketHeader extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: backgroundColor,
       actions: <Widget>[
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+             Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProfilePage(),),);
+          },
           icon: const Icon(
             Icons.account_circle_sharp,
             size: 36,
@@ -62,6 +68,10 @@ class _PocketFooterState extends State<PocketFooter> {
                   );
                   break;
                 case 1:
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => CameraPage()),
+                  );
                   break;
                 case 2:
                   Navigator.pushReplacement(

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_fridge/headerfooter/headerfooter.dart';
-import 'package:pocket_fridge/pageitems/recepieslist.dart';
-import 'package:pocket_fridge/styles/textsStyle.dart';
 
 class RecipePage extends StatelessWidget {
   final String categoryName;
