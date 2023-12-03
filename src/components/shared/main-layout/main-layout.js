@@ -15,8 +15,7 @@ export default function MainLayout() {
                    target={"_blank"}
                    rel="noreferrer"
                    className={styles.downloadLink}
-                >Download
-                    app</a>
+                >Download App</a>
             </div>
 
         </div>

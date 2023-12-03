@@ -1,0 +1,81 @@
+@import "../../../styles.scss";
+
+.container{
+  position: relative;
+  min-height: 90vh;
+  .fridgeContainer{
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    margin-left: -25%;
+    animation: dropIn .7s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+    .fridgeImg {
+      height: 600px;
+      margin-right: 15px;
+    }
+
+    h1 {
+      position: absolute;
+      color: #F8A34E;
+      left: 100%;
+      top: 28%;
+      display: block;
+      width: 400px;
+      animation: flyout 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      z-index: -1;
+      font-size: 48px;
+      font-weight: 900;
+    }
+    h2 {
+      position: absolute;
+      color: #B0A144;
+      left: 100%;
+      top: 42%;
+      width: 500px;
+      animation: flyout 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      z-index: -1;
+      font-size: 28px;
+    }
+
+    span {
+      position: absolute;
+      display: block;
+      width: 400px;
+      font-size: 24px;
+      font-weight: 600;
+      color: #C53132;
+      animation: flyout 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      top: 52%;
+      left: 100%;
+      z-index: -1;
+    }
+  }
+}
+
+@keyframes dropIn {
+  0% {
+    top: -100%;
+  }
+  50% {
+    top: 100px;
+  }
+}
+
+@keyframes flyout {
+  0% {
+    top: 50%;
+    left: 0;
+    transform: scale(0);
+  }
+  50% {
+    top: 50%;
+    left: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    left: 100%;
+    transform: scale(1);
+  }
+}
