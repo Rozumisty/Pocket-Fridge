@@ -107,13 +107,26 @@
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+  }
+
   .container {
+    flex: 1; /* Allow the container to grow and take remaining space */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    height: 120vh;
+
     .fridgeContainer {
       left: 50%;
-      top: 50px; /* Adjust top position for smaller screens */
       transform: translateX(-50%);
       .fridgeImg {
-        height: 400px; /* Adjust height for smaller screens */
+        height: 400px;
       }
       h1,
       h2,
@@ -121,21 +134,25 @@
         position: absolute;
         width: auto;
         left: 0;
-        text-align: center; /* Center text */
+        text-align: center;
       }
       h1 {
-        top: 100%; /* Place below the image */
-        font-size: 36px; /* Adjust font size for smaller screens */
+        top: 100%;
+        font-size: 36px;
       }
       h2 {
-        top: 122%; /* Adjust top position for smaller screens */
-        font-size: 20px; /* Adjust font size for smaller screens */
+        top: 122%;
+        font-size: 20px;
       }
       span {
-        top: 135%; /* Adjust top position for smaller screens */
-        font-size: 16px; /* Adjust font size for smaller screens */
+        top: 135%;
+        font-size: 16px;
       }
     }
+  }
+
+  footer {
+    margin-top: auto; /* Push the footer to the bottom */
   }
 }
 
