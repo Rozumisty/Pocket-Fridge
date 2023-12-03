@@ -66,6 +66,38 @@ flutter:
     - assets/images/refrigerator.png
     - assets/images/baby-carrots.jpg
     - assets/images/vegetable-cat.jpg
+    - assets/images/fish.jpg
+    - assets/images/flat-lay-of-bunch-of-fresh-provisions-for-donation.jpg
+    - assets/images/fruit.jpg
+    - assets/images/meat.jpg
+    - assets/images/milk-products-on-wooden-table.jpg
+    - assets/images/onion.jpg
+    - assets/images/potato.jpg
+    - assets/images/red-pepper.jpg
+    - assets/images/tomatoes.jpg
+    - assets/images/cucumber.jpg
+    - assets/images/milk.png
+    - assets/images/sourcream.jpg
+    - assets/images/delicious-piece-cheese.jpg
+    - assets/images/herring.png
+    - assets/images/raw-salmon-meat.jpg
+    - assets/images/background-full-couscous.jpg
+    - assets/images/buckwheat.jpg
+    - assets/images/close-up-pistachio-texture.jpg
+    - assets/images/closeup-white-rice-textured.jpg
+    - assets/images/olive-oil-bowl.jpg
+    - assets/images/sunflower-seed.jpg
+    - assets/images/apple.jpg
+    - assets/images/kiwi.jpg
+    - assets/images/grape.jpg
+    - assets/images/orange.jpg
+    - assets/images/strawberry.jpg
+    - assets/images/banana.jpg
+    - assets/images/chicken-breast.jpg
+    - assets/images/chicken-wings.jpg
+    - assets/images/ham.jpg
+    - assets/images/pork-chop.jpg
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

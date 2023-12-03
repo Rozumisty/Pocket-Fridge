@@ -4,7 +4,13 @@ import 'package:pocket_fridge/pageitems/productslist.dart';
 import 'package:pocket_fridge/styles/textsStyle.dart';
 
 class CategoryPage extends StatefulWidget {
-  const CategoryPage({Key? key}) : super(key: key);
+
+  final Color appbarback;
+  final String labeltext;
+  final Color textstyle;
+  final List<ProductItem> productItems;
+
+  const CategoryPage({Key? key, required this.appbarback, required this.labeltext, required this.textstyle, required this.productItems}) : super(key: key);
 
   @override
   State<CategoryPage> createState() => _CategoryPageState();
@@ -15,8 +21,8 @@ class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const PocketHeader(
-        backgroundColor: Color.fromARGB(170, 0, 128, 0),
+      appBar: PocketHeader(
+        backgroundColor: widget.appbarback,
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -28,10 +34,10 @@ class _CategoryPageState extends State<CategoryPage> {
                   width: 12,
                   height: 80,
                 ),
-                const Text(
-                  "{Category Name}",
+                 Text(
+                  widget.labeltext,
                   style: TextStyle(
-                    color: Color.fromARGB(170, 0, 128, 0),
+                    color: widget.textstyle,
                     fontFamily: "Montserrat",
                     fontWeight: FontWeight.w500,
                     fontSize: 32,
@@ -49,18 +55,8 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
             Expanded(
               child: ListView(
-                children: const [
-                  ProductItem(),
-                  ProductItem(),
-                  ProductItem(),
-                  ProductItem(),
-                  ProductItem(),
-                  ProductItem(),
-                  ProductItem(),
-                  ProductItem(),
-                  ProductItem(),
-                  ProductItem()
-                ],
+                children: 
+                  widget.productItems,
               ),
             ),
           ],
