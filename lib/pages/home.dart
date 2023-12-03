@@ -56,7 +56,6 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: PocketFooter(selectedIndex: selectedIndex),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Додайте тут код для обробки натискання на кнопку
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -365,21 +364,21 @@ class _HomeProductCategoriesState extends State<HomeProductCategories> {
                     ),
                     ProductItem(
                       imagePath: 'assets/images/chicken-wings.jpg',
-                      title: 'Chicken Breast',
+                      title: 'Chicken Wings',
                       expirationDate: '11.12.2023',
                       quantity: '12 pieces',
                       containerback: Color.fromARGB(255, 160, 29, 29),
                     ),
                     ProductItem(
                       imagePath: 'assets/images/ham.jpg',
-                      title: 'Chicken Breast',
+                      title: 'Ham',
                       expirationDate: '18.12.2023',
                       quantity: '600 gr',
                       containerback: Color.fromARGB(255, 160, 29, 29),
                     ),
                     ProductItem(
                       imagePath: 'assets/images/pork-chop.jpg',
-                      title: 'Chicken Breast',
+                      title: 'Pork Chop',
                       expirationDate: '16.12.2023',
                       quantity: '300 gr',
                       containerback: Color.fromARGB(255, 160, 29, 29),
