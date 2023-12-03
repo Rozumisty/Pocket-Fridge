@@ -28,7 +28,7 @@ class CategoryItem extends StatelessWidget {
             image: AssetImage(imagePath),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              Color.fromARGB(255, 0, 0, 0).withOpacity(0.29),
+              const Color.fromARGB(255, 0, 0, 0).withOpacity(0.29),
               BlendMode.darken,
             ),
           ),

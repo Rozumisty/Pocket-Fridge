@@ -66,7 +66,7 @@ class _PocketFooterState extends State<PocketFooter> {
                 case 2:
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const RecipePage()),
+                    MaterialPageRoute(builder: (context) => const RecipesPage()),
                   );
                   break;
                 default:

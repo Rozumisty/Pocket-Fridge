@@ -97,6 +97,10 @@ flutter:
     - assets/images/chicken-wings.jpg
     - assets/images/ham.jpg
     - assets/images/pork-chop.jpg
+    - assets/images/borsch.jpg
+    - assets/images/chicken-breast-recipe.jpg
+    - assets/images/pastarecipe.jpg
+    - assets/images/pasta.jpg
     
   #   - images/a_dot_ham.jpeg
 

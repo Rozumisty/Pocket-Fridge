@@ -6,6 +6,7 @@ import 'package:pocket_fridge/headerfooter/headerfooter.dart';
 import 'package:pocket_fridge/pages/categorypage.dart';
 import 'package:pocket_fridge/pages/addproduct.dart';
 
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -235,6 +236,13 @@ class _HomeProductCategoriesState extends State<HomeProductCategories> {
                       containerback: Color.fromARGB(255, 160, 125, 29),
                     ),
                     ProductItem(
+                      imagePath: 'assets/images/pasta.jpg',
+                      title: 'Pasta',
+                      expirationDate: '01.01.2026',
+                      quantity: '600 gr',
+                      containerback: Color.fromARGB(255, 160, 125, 29),
+                    ),
+                    ProductItem(
                       imagePath: 'assets/images/buckwheat.jpg',
                       title: 'Buckwheat',
                       expirationDate: '01.02.2025',
@@ -269,7 +277,7 @@ class _HomeProductCategoriesState extends State<HomeProductCategories> {
                       expirationDate: '19.11.2025',
                       quantity: '400 gr',
                       containerback: Color.fromARGB(255, 160, 125, 29),
-                    )
+                    ),
                   ],
                 ),
               ),

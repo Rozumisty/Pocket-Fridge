@@ -19,8 +19,6 @@ class ProductItem extends StatefulWidget {
 
   @override
   State<ProductItem> createState() => _ProductItemState();
-
-  toWidget() {}
 }
 
 class _ProductItemState extends State<ProductItem> {
