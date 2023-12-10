@@ -97,11 +97,3 @@ ON UPDATE CASCADE
 GO
 ALTER TABLE [ReceiptsProducts] CHECK CONSTRAINT [fk_ReceptsProducts_Product_ProductID_ID]
 GO
-
-DROP TABLE Countries
-DROP TABLE UserFridge
-DROP TABLE Receipts
-DROP TABLE Products
-DROP TABLE Categories
-DROP TABLE ReceiptsProducts
-DROP TABLE Users
