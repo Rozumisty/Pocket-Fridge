@@ -30,7 +30,7 @@ public class UserFridgeService implements CommandLineRunner {
                 return rs.getString("productId");
             }
         }, getUserId(login));
-        System.out.println(productIds);
+//        System.out.println(productIds);
         return productIds.toString();
     }
 
