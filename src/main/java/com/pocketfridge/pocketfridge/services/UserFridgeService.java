@@ -1,14 +1,16 @@
 package com.pocketfridge.pocketfridge.services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+
 import org.springframework.stereotype.Service;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
+
+import java.util.*;
+import java.sql.Date;
 
 @Service
 public class UserFridgeService implements CommandLineRunner {
@@ -21,21 +23,50 @@ public class UserFridgeService implements CommandLineRunner {
 
     }
 
-    public String getUserFridge(String login){
-        String sql = "SELECT productId, quantity FROM UserFridge WHERE userId = ?";
-        List<String> productIds = jdbcTemp.query(sql, new RowMapper<String>() {
-            @Override
-            public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-                System.out.println(rs.getString("quantity"));
-                return rs.getString("productId");
-            }
-        }, getUserId(login));
-//        System.out.println(productIds);
-        return productIds.toString();
+    //категорія
+    public String getUserFridge(String login) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        ArrayList<LinkedHashMap<String, String>> result = new ArrayList<>();
+        String sql = "SELECT productId, quantity, expirationDate FROM UserFridge WHERE userId = ?";
+
+        int userId = Integer.parseInt(getUserId(login));
+
+        List<Map<String, Object>> rows = jdbcTemp.queryForList(sql, userId);
+        for (Map<String, Object> row : rows) {
+            LinkedHashMap<String, String> item = new LinkedHashMap<>();
+            item.put("productId", row.get("productID").toString());
+            item.put("productName", getProductName((int)row.get("productID")));
+            item.put("quantity", row.get("quantity").toString());
+            item.put("expirationDate", row.get("expirationDate").toString());
+            result.add(item);
+        }
+        return mapper.writeValueAsString(result);
     }
 
-    private String getUserId(String login) {
+
+    // додавання кількості продуктів
+
+    public void addProduct(int userId, String productName, int quantity, Date expirationDate){
+        String sql = "INSERT INTO UserFridge(userid, productId, quantity, additionDate, expirationDate) " +
+                "VALUES(?, ?, ?, ?, ?)";
+        jdbcTemp.update(sql,
+                userId, getProductId(productName), quantity, java.time.LocalDate.now(), expirationDate);
+    }
+
+    private String getProductName(int productID) {
+        String sql = "SELECT name FROM Products WHERE id = ?";
+
+        return jdbcTemp.queryForObject(sql, String.class, productID);
+    }
+
+    private Integer getProductId(String productName){
+    String sql = "SELECT id FROM Products WHERE name = ?";
+        return jdbcTemp.queryForObject(sql, Integer.class, productName);
+    }
+
+    public String getUserId(String login) {
         String sql = "SELECT id FROM Users WHERE login = ?";
         return jdbcTemp.queryForObject(sql, String.class, login);
     }
+
 }
