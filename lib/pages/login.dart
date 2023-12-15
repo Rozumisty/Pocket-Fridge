@@ -3,6 +3,7 @@ import 'package:pocket_fridge/styles/textsStyle.dart';
 import 'package:flutter/gestures.dart';
 import 'package:pocket_fridge/pages/registration.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<bool> signIn(Map<String, dynamic> data) async {
   final Uri url = Uri.parse('http://26.136.102.158:8080/checkPassword').replace(
@@ -15,11 +16,12 @@ Future<bool> signIn(Map<String, dynamic> data) async {
       print('GET request successful');
       print('Response data: ${response.body}');
 
-      // Перевірка результату і повернення true чи false
       String responseString = response.body.toLowerCase();
       bool isAuthenticated = responseString == 'true';
 
       if (isAuthenticated) {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('userLogin', data['login']);
         return true;
       } else if (responseString == 'false') {
         return false;

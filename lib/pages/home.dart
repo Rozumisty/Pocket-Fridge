@@ -5,6 +5,8 @@ import 'package:pocket_fridge/pageitems/categorylist.dart';
 import 'package:pocket_fridge/headerfooter/headerfooter.dart';
 import 'package:pocket_fridge/pages/categorypage.dart';
 import 'package:pocket_fridge/pages/addproduct.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 
 class HomePage extends StatefulWidget {
@@ -16,6 +18,43 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final selectedIndex = 0;
+
+  late SharedPreferences prefs;
+  late String userLogin;
+
+   @override
+  void initState() {
+    super.initState();
+    initPreferences();
+  }
+
+  Future<void> initPreferences() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+      userLogin = prefs.getString('userLogin') ?? '';
+    });
+  }
+
+  void getUser() async {
+    final uri = Uri(
+      scheme: 'http',
+      host: '26.136.102.158',
+      port: 8080,
+      path: '/getProducts',
+      // queryParameters: {
+      //   'login': userLogin,
+      // },
+    );
+
+    var response = await http.get(uri);
+
+    if (response.statusCode == 200) {
+      print('GET request successful');
+      print('Response data: ${response.body}');
+    } else {
+      print('GET request failed with status: ${response.statusCode}');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const Spacer(),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {getUser();},
                   icon: const Icon(
                     Icons.tune,
                     size: 24,
