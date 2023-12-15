@@ -29,12 +29,27 @@ const TextStyle textStyleSign = TextStyle(
   fontSize: 20,
 );
 
+const TextStyle textStyleSign2 = TextStyle(
+  color: Color.fromARGB(255, 200, 162, 200),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w700,
+  fontSize: 20,
+);
+
 const TextStyle textStyleSmall = TextStyle(
   color: Colors.white,
   fontFamily: "Montserrat",
   fontWeight: FontWeight.w700,
   fontSize: 14,
 );
+
+const TextStyle textStyleSmall2 = TextStyle(
+  color: Color.fromARGB(255, 200, 162, 200),
+  fontFamily: "Montserrat",
+  fontWeight: FontWeight.w700,
+  fontSize: 14,
+);
+
 
 const TextStyle textStyleReg = TextStyle(
   color: Color.fromARGB(255, 73, 37, 255),

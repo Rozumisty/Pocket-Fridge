@@ -2,6 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:pocket_fridge/styles/textsStyle.dart';
 import 'package:flutter/gestures.dart';
 import 'package:pocket_fridge/pages/registration.dart';
+import 'package:http/http.dart' as http;
+
+Future<bool> signIn(Map<String, dynamic> data) async {
+  final Uri url = Uri.parse('http://26.136.102.158:8080/checkPassword').replace(
+      queryParameters: {'login': data['login'], 'password': data['password']});
+
+  try {
+    var response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      print('GET request successful');
+      print('Response data: ${response.body}');
+
+      // Перевірка результату і повернення true чи false
+      String responseString = response.body.toLowerCase();
+      bool isAuthenticated = responseString == 'true';
+
+      if (isAuthenticated) {
+        return true;
+      } else if (responseString == 'false') {
+        return false;
+      } else {
+        // Обробка невідомого значення, якщо не "true" і не "false"
+        print('Unexpected response from the server: $responseString');
+        return false;
+      }
+    } else {
+      print('GET request failed with status: ${response.statusCode}');
+      return false;
+    }
+  } catch (error) {
+    print('An error occurred: $error');
+    return false;
+  }
+}
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,6 +48,9 @@ class _LoginPageState extends State<LoginPage> {
   _LoginPageState();
 
   final Color loginbackground = const Color.fromARGB(255, 200, 162, 200);
+
+  TextEditingController login = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   bool _isObscured = true;
 
@@ -55,12 +93,13 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     borderRadius: BorderRadius.circular(24),
                   ),
-                  child: const TextField(
+                  child: TextFormField(
+                    controller: login,
                     style: textStyleInput,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       contentPadding: EdgeInsets.all(16.0),
                       border: InputBorder.none,
-                      hintText: "Login or E-mail",
+                      hintText: "Login",
                       hintStyle: textStyleInput,
                     ),
                   ),
@@ -79,7 +118,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     borderRadius: BorderRadius.circular(24),
                   ),
-                  child: TextField(
+                  child: TextFormField(
+                    controller: password,
                     obscureText: _isObscured,
                     style: textStyleInput,
                     decoration: InputDecoration(
@@ -102,9 +142,54 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20,
               ),
               TextButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(
-                      context, '/home'); // sign in function
+                onPressed: () async {
+                  String loginsent = login.text;
+                  String passwordsent = password.text;
+                  var data = {
+                    "login": loginsent,
+                    "password": passwordsent,
+                  };
+
+                  bool isAuthenticated = await signIn(data);
+
+                  if (isAuthenticated) {
+                    Navigator.pushReplacementNamed(context, '/home');
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Container(
+                          padding: const EdgeInsets.all(16),
+                          height: 90,
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(12),
+                            ),
+                          ),
+                          child: const Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Authentication failed...",
+                                style: textStyleSign2,
+                              ),
+                              Text(
+                                "Please check your credentials",
+                                style: textStyleSmall2,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              )
+                            ],
+                          ),
+                        ),
+                        behavior: SnackBarBehavior.floating,
+                        duration: const Duration(seconds: 5),
+                        backgroundColor: Colors.transparent,
+                        elevation: 0,
+                      ),
+                    );
+                  }
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(205, 144, 122, 255),
@@ -134,15 +219,17 @@ class _LoginPageState extends State<LoginPage> {
                       style: textStyleReg,
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Register Now',
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const RegistrationPage()),
-                                );
-                              }),
+                          text: 'Register Now',
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const RegistrationPage()),
+                              );
+                            },
+                        ),
                       ],
                     ),
                   ),
