@@ -1,11 +1,13 @@
 package com.pocketfridge.pocketfridge.controllers;
 
-import com.pocketfridge.pocketfridge.models.Users;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.pocketfridge.pocketfridge.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class UsersController {
@@ -18,8 +20,8 @@ public class UsersController {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Users getUser(@RequestParam Integer id){
-        return usersService.getUser(id);
+    public String getUser(@RequestParam String login) throws JsonProcessingException {
+        return usersService.getUser(login);
     }
 
     @GetMapping("/getPassword")
@@ -27,7 +29,8 @@ public class UsersController {
         return usersService.getPassword(login);
     }
 
-    @PostMapping("/addUser")
+//    @PostMapping("/addUser")
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public ResponseEntity<String> addUser( @RequestParam String firstName, @RequestParam String lastName,
                                           @RequestParam String login, @RequestParam String password, @RequestParam String email){
         usersService.addUser(firstName, lastName, login, password, email);

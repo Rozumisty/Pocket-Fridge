@@ -75,7 +75,6 @@ public class UserFridgeService implements CommandLineRunner {
         if (!dates.isEmpty()) {
             for (Date date : dates) {
                 if (date.equals(expirationDate)) {
-                    System.out.println("sttutut");
                     String sqlUpd = "UPDATE UserFridge SET quantity = quantity + ? " +
                             "WHERE productId = (SELECT id FROM Products WHERE name = ?)" +
                             " AND expirationDate = ? AND userId = ?";
@@ -86,7 +85,6 @@ public class UserFridgeService implements CommandLineRunner {
             }
         }
         if (!exist){
-            System.out.println("123");
             String sqladd = "INSERT INTO UserFridge (userid, productId, quantity, additionDate, expirationDate) " +
                     "VALUES (?, " +
                     "(SELECT id FROM Products WHERE name = ?), ?, ?, ?)";
