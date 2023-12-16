@@ -65,45 +65,129 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/refrigerator.png
-    - assets/images/baby-carrots.jpg
-    - assets/images/vegetable-cat.jpg
-    - assets/images/fish.jpg
-    - assets/images/flat-lay-of-bunch-of-fresh-provisions-for-donation.jpg
-    - assets/images/fruit.jpg
-    - assets/images/meat.jpg
-    - assets/images/milk-products-on-wooden-table.jpg
-    - assets/images/onion.jpg
-    - assets/images/potato.jpg
-    - assets/images/red-pepper.jpg
-    - assets/images/tomatoes.jpg
-    - assets/images/cucumber.jpg
-    - assets/images/milk.png
-    - assets/images/sourcream.jpg
-    - assets/images/delicious-piece-cheese.jpg
-    - assets/images/herring.png
-    - assets/images/raw-salmon-meat.jpg
-    - assets/images/background-full-couscous.jpg
-    - assets/images/buckwheat.jpg
-    - assets/images/close-up-pistachio-texture.jpg
-    - assets/images/closeup-white-rice-textured.jpg
-    - assets/images/olive-oil-bowl.jpg
-    - assets/images/sunflower-seed.jpg
-    - assets/images/apple.jpg
-    - assets/images/kiwi.jpg
-    - assets/images/grape.jpg
-    - assets/images/orange.jpg
-    - assets/images/strawberry.jpg
-    - assets/images/banana.jpg
-    - assets/images/chicken-breast.jpg
-    - assets/images/chicken-wings.jpg
-    - assets/images/ham.jpg
-    - assets/images/pork-chop.jpg
     - assets/images/borsch.jpg
     - assets/images/chicken-breast-recipe.jpg
     - assets/images/pastarecipe.jpg
-    - assets/images/pasta.jpg
     - assets/images/avatar.jpg
-    
+    - assets/images/categories/Alcohol.jpg
+    - assets/images/categories/Beverages.jpg
+    - assets/images/categories/Dairy.jpg
+    - assets/images/categories/Fish.jpg
+    - assets/images/categories/Fruits.jpg
+    - assets/images/categories/Meat.jpg
+    - assets/images/categories/Other.jpg
+    - assets/images/categories/Root Vegetables.jpg
+    - assets/images/categories/Sauces.jpg
+    - assets/images/categories/Seafood.jpg
+    - assets/images/categories/Spices.jpg
+    - assets/images/categories/Sweets.jpg
+    - assets/images/categories/Vegetables.jpg
+    - assets/images/products/Beets.jpg
+    - assets/images/products/Broccoli.jpg
+    - assets/images/products/Carrots.jpg
+    - assets/images/products/Cucumbers.jpg
+    - assets/images/products/Garlic.jpg
+    - assets/images/products/Lettuce.jpg
+    - assets/images/products/Onions.jpg
+    - assets/images/products/Peppers.jpg
+    - assets/images/products/Potatoes.jpg
+    - assets/images/products/Spinach.jpg
+    - assets/images/products/Tomatoes.jpg
+    - assets/images/products/Barbeque Sauce.jpg
+    - assets/images/products/Curry.jpg
+    - assets/images/products/Ketchup.jpg
+    - assets/images/products/Mayonnaise.jpg
+    - assets/images/products/Mustard.jpg
+    - assets/images/products/Soy Sauce.jpg
+    - assets/images/products/Tartar.jpg
+    - assets/images/products/Teriyaki.jpg
+    - assets/images/products/Tomato Paste.jpg
+    - assets/images/products/Shrimps.jpg
+    - assets/images/products/Mussels.jpg
+    - assets/images/products/Salmon.jpg
+    - assets/images/products/Squid.jpg
+    - assets/images/products/Sea Horses.jpg
+    - assets/images/products/Caviar.jpg
+    - assets/images/products/Vodka.jpg
+    - assets/images/products/Whiskey.jpg
+    - assets/images/products/Cognac.jpg
+    - assets/images/products/Rum.jpg
+    - assets/images/products/Tequila.jpg
+    - assets/images/products/Absinthe.jpg
+    - assets/images/products/Fruit Liqueur.jpg
+    - assets/images/products/Beer.jpg
+    - assets/images/products/Wine.jpg
+    - assets/images/products/Gin.jpg
+    - assets/images/products/Chicken.jpg
+    - assets/images/products/Pork.jpg
+    - assets/images/products/Beef.jpg
+    - assets/images/products/Sausage.jpg
+    - assets/images/products/Chicken Wings.jpg
+    - assets/images/products/Turkey.jpg
+    - assets/images/products/Minced Meat.jpg
+    - assets/images/products/Salami.jpg
+    - assets/images/products/Hunter's Sausages.jpg
+    - assets/images/products/Apples.jpg
+    - assets/images/products/Bananas.jpg
+    - assets/images/products/Oranges.jpg
+    - assets/images/products/Pears.jpg
+    - assets/images/products/Plums.jpg
+    - assets/images/products/Strawberries.jpg
+    - assets/images/products/Grapes.jpg
+    - assets/images/products/Kiwi.jpg
+    - assets/images/products/Mango.jpg
+    - assets/images/products/Avocado.jpg
+    - assets/images/products/Salt.jpg
+    - assets/images/products/Sugar.jpg
+    - assets/images/products/Italian Herbs.jpg
+    - assets/images/products/Bay Leaf.jpg
+    - assets/images/products/Cloves.jpg
+    - assets/images/products/Ground Garlic.jpg
+    - assets/images/products/Paprika.jpg
+    - assets/images/products/Turmeric.jpg
+    - assets/images/products/Milk.jpg
+    - assets/images/products/Cheddar Cheese.jpg
+    - assets/images/products/Yogurt.jpg
+    - assets/images/products/Whipped Cream.jpg
+    - assets/images/products/Sour Cream.jpg
+    - assets/images/products/Feta Cheese.jpg
+    - assets/images/products/Parmesan Cheese.jpg
+    - assets/images/products/Kefir.jpg
+    - assets/images/products/Rice.jpg
+    - assets/images/products/Bread.jpg
+    - assets/images/products/Oats.jpg
+    - assets/images/products/Buckwheat.jpg
+    - assets/images/products/Corn.jpg
+    - assets/images/products/Millet.jpg
+    - assets/images/products/Pasta.jpg
+    - assets/images/products/Barley.jpg
+    - assets/images/products/Kidney Beans.jpg
+    - assets/images/products/Whole Grain Bread.jpg
+    - assets/images/products/Hake.jpg
+    - assets/images/products/Mackerel.jpg
+    - assets/images/products/Sprat.jpg
+    - assets/images/products/Sardines.jpg
+    - assets/images/products/Smoked Sprats.jpg
+    - assets/images/products/Cod.jpg
+    - assets/images/products/Carp.jpg
+    - assets/images/products/Pikeperch.jpg
+    - assets/images/products/Coca-Cola.jpg
+    - assets/images/products/Fanta.jpg
+    - assets/images/products/Energy Drink.jpg
+    - assets/images/products/Juice.jpg
+    - assets/images/products/Chocolate.jpg
+    - assets/images/products/Muffins.jpg
+    - assets/images/products/Doughnuts.jpg
+    - assets/images/products/Marshmallow.jpg
+    - assets/images/products/Pickled Cabbage.jpg
+    - assets/images/products/Honey.jpg
+    - assets/images/products/Oil.jpg
+    - assets/images/products/Chicken Eggs.jpg
+    - assets/images/products/Duck Eggs.jpg
+    - assets/images/products/Quail Eggs.jpg
+    - assets/images/products/Ostrich Eggs.jpg
+    - assets/images/products/Lizard Eggs.jpg
+    - assets/images/products/Goose Eggs.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -205,38 +205,43 @@ class _AddProductState extends State<AddProduct> {
 
   List<String> userData = [];
 
-  Future<void> _selectDate(BuildContext context) async {
-    DateTime now = DateTime.now();
+Future<void> _selectDate(BuildContext context) async {
+  DateTime now = DateTime.now();
+  DateTime tomorrow = now.add(Duration(days: 1));
 
-    DateTime? pickedDate = await showDatePicker(
-      context: context,
-      initialDate: now,
-      firstDate: DateTime(now.year - 1),
-      lastDate: DateTime(now.year + 1),
-      builder: (BuildContext context, Widget? child) {
-        return Theme(
-          data: ThemeData.light().copyWith(
-            colorScheme: const ColorScheme.light(
-              primary: Color.fromARGB(255, 200, 162, 200),
-              onPrimary: Colors.white,
-              surface: Color.fromARGB(255, 200, 162, 200),
-              onSurface: Color.fromARGB(205, 144, 122, 255),
-            ),
-            buttonTheme: const ButtonThemeData(
-              textTheme: ButtonTextTheme.primary,
-            ),
+  DateTime? pickedDate = await showDatePicker(
+    context: context,
+    initialDate: tomorrow,
+    firstDate: tomorrow,
+    lastDate: DateTime(now.year + 1, 12, 31), // Оновлено цей рядок
+    builder: (BuildContext context, Widget? child) {
+      return Theme(
+        data: ThemeData.light().copyWith(
+          colorScheme: const ColorScheme.light(
+            primary: Color.fromARGB(255, 200, 162, 200),
+            onPrimary: Colors.white,
+            surface: Color.fromARGB(255, 200, 162, 200),
+            onSurface: Color.fromARGB(205, 144, 122, 255),
           ),
-          child: child!,
-        );
-      },
-    );
+          buttonTheme: const ButtonThemeData(
+            textTheme: ButtonTextTheme.primary,
+          ),
+        ),
+        child: child!,
+      );
+    },
+  );
 
-    if (pickedDate != null) {
-      setState(() {
-        expirydatecont.text = pickedDate.toLocal().toString().split(' ')[0];
-      });
-    }
+  if (pickedDate != null) {
+    setState(() {
+      expirydatecont.text = pickedDate.toLocal().toString().split(' ')[0];
+    });
   }
+}
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
