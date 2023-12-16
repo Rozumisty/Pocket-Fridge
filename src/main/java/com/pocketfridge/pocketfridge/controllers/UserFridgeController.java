@@ -27,8 +27,13 @@ public class UserFridgeController {
     }
 
     @PostMapping("/addProduct")
-    public void addProduct(@RequestParam int userId, @RequestParam String productName, @RequestParam int quantity,
+    public void addProduct(@RequestParam String login, @RequestParam String productName, @RequestParam int quantity,
                            @RequestParam Date expirationDate){
-        userFridgeService.addProduct(userId, productName, quantity, expirationDate);
+        userFridgeService.addProduct(login, productName, quantity, expirationDate);
+    }
+
+    @PutMapping("/removeProduct")
+    public void removeProduct(@RequestParam String login, @RequestParam String productName, @RequestParam Date expirationDate) {
+        userFridgeService.removeProduct(login, productName, expirationDate);
     }
 }

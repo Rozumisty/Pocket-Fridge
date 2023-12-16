@@ -62,7 +62,7 @@ public class UserFridgeService implements CommandLineRunner {
         return mapper.writeValueAsString(resultMap);
     }
 
-    public void addProduct(int userId, String productName, int quantity, Date expirationDate) {
+    public void addProduct(String login, String productName, int quantity, Date expirationDate) {
 
         boolean exist = false;
 
@@ -70,7 +70,7 @@ public class UserFridgeService implements CommandLineRunner {
                 "JOIN Products p ON p.id = uf.productId " +
                 "WHERE p.name = ? AND userId = ?";
 
-        List<Date> dates = jdbcTemp.queryForList(sql, Date.class, productName, userId);
+        List<Date> dates = jdbcTemp.queryForList(sql, Date.class, productName, getUserId(login));
 
         if (!dates.isEmpty()) {
             for (Date date : dates) {
@@ -78,7 +78,7 @@ public class UserFridgeService implements CommandLineRunner {
                     String sqlUpd = "UPDATE UserFridge SET quantity = quantity + ? " +
                             "WHERE productId = (SELECT id FROM Products WHERE name = ?)" +
                             " AND expirationDate = ? AND userId = ?";
-                    jdbcTemp.update(sqlUpd, quantity, productName, date, userId);
+                    jdbcTemp.update(sqlUpd, quantity, productName, date, getUserId(login));
                     exist = true;
                     break;
                 }
@@ -89,10 +89,27 @@ public class UserFridgeService implements CommandLineRunner {
                     "VALUES (?, " +
                     "(SELECT id FROM Products WHERE name = ?), ?, ?, ?)";
 
-            jdbcTemp.update(sqladd, userId, productName, quantity, java.time.LocalDate.now(), expirationDate);
+            jdbcTemp.update(sqladd, getUserId(login), productName, quantity, java.time.LocalDate.now(), expirationDate);
         }
     }
 
+    public void removeProduct(String login, String productName, Date expirationDate) {
+
+        // перевірка, що продукт існує
+        String sqlCheck = "SELECT 1 FROM UserFridge uf JOIN Products p ON uf.productId = p.id " +
+                "WHERE uf.userId = ? AND p.name = ? AND uf.expirationDate = ?";
+
+        if (!jdbcTemp.queryForList(sqlCheck, Integer.class, getUserId(login), productName, expirationDate).isEmpty()) {
+            String sqlDelete = "DELETE FROM UserFridge " +
+                    "WHERE userId = ? AND productId = (SELECT id FROM Products WHERE name = ?) " +
+                    "AND expirationDate = ?";
+
+            jdbcTemp.update(sqlDelete, getUserId(login), productName, expirationDate);
+        }
+
+        // видалення продукту
+
+    }
     private Integer getProductId(String productName) {
         String sql = "SELECT id FROM Products WHERE name = ?";
         return jdbcTemp.queryForObject(sql, Integer.class, productName);
